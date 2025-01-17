@@ -299,7 +299,7 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+    <a class="skip-link" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 
@@ -372,5 +372,29 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-  {%- render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: oneclickupsellapp -%}</body>
+  {%- render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: oneclickupsellapp -%}
+  
+<script>
+setTimeout(() => {
+  const dropLinks = document.querySelectorAll(".tmenu_item_has_child .tmenu_item_link");
+  
+  if (dropLinks) {
+      dropLinks.forEach((x, i) => {
+          x.addEventListener("focus", () => {
+              var event = new MouseEvent('mouseenter', {
+                  'view': window,
+                  'bubbles': true,
+                  'cancelable': true
+                });
+  
+                console.log(event);
+              
+                x.dispatchEvent(event)
+          })
+      });
+  }
+}, 250);
+</script>
+    
+  </body>
 </html>

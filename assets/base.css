@@ -3595,3 +3595,31 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+}
+
+*:focus-visible {
+  border: 2px solid black;
+}
+
+.skip-link {
+                position: absolute;
+                left: -10000px;
+                top: 0px;
+                padding: 12px;
+                background-color: white;
+                color: black;
+                border: 2px solid black;
+                border-radius: 5px;
+                z-index: 999999999;
+            }
+            .skip-link:focus-visible {
+                left: 0px;
+            }
+
+.tmenu_submenu li a:focus {
+  border: 2px solid black !important;
+}
